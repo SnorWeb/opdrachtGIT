@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herhalingslussen</title>
+</head>
+<body>
+    <script>
+        /*Schrijf een herhalingslus die de tekst "Hallo wereld" 6 keer schrijft in het document.
+        De opmaak van de tekst moet gaan van <h1> naar <h6>. 
+        Maak gebruik van de index i om de cijfers van de hoofdingen samen te stellen.*/
+        
+        let hallo   = ["<h1>Hallo wereld.</h1>", "<h2>Hallo wereld.</h2>", "<h3>Hallo wereld.</h3>", "<h4>Hallo wereld.</h4>", "<h5>Hallo wereld.</h5>", "<h6>Hallo wereld.</h6>", ];
+        let lengte  = hallo.length;
+        for (let i = 0; i < lengte; i++) {
+            document.write (`<p>${hallo[i]}</p>`);
+            
+        }
+    </script>    
+</body>
+</html>

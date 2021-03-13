@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle invoer getal.</title>
+</head>
+<body>
+    <!-- 
+    Zorg dat de code strict is.
+
+    In het hoofdscript maak je een lege array aan met naam getallen.
+
+    Je vraagt aan de gebruiker hoeveel getallen hij wil ingeven.
+
+    Vervolgens controleer je deze ingave door de invoer door te geven aan een functie expressie met naam controleAantal:
+
+    aantal = controleAantal(aantal);
+
+    In de functie expressie controleAantal controleer je achtereenvolgens op:
+    - annuleren: schrijf in het document: U hebt geannuleerd
+    - niets ingegeven: schrijf in het document: U heeft niets ingegeven
+    - als het een getal is: return het getal
+    - anders: schrijf in het document: Dit is geen correcte ingave. En return 0
+
+    In het hoofdscript moet je dus kijken of aantal groter is dan 0. In dat geval voer je een lus uit.
+    In de lus vraag je via een prompt: Geef getal (nummer van getal) in.
+    Ook nog in de lus vul je de array dan verder op. 
+    De inhoud van de plaats in de array wordt ingevuld door een tweede functie expressie op te roepen en de waarde die in de prompt is ingegeven door te geven.
+    Als de lus afgelopen is, schrijf je de array in het document.
+
+    In de functie expressie controleGetal controleer je ten eerste of de ontvangen waarde een annulatie is of geen inhoud heeft of geen getal is, met 1 opdracht dus. In dat geval return je "fout".
+    Indien de ontvangen waarde een getal is, dan return je gewoon het getal.
+    -->
+    <script>
+        "use strict";
+
+        function controleAantal(getal) {
+            if (getal == null){
+                document.write(`<p>U hebt geannuleerd</p>`);
+            }
+            else if (getal == 0){
+                document.write(`<p>U heeft niets ingegeven</p>`);
+            }
+            else if (isNaN(getal) == false){
+                return getal
+            }
+            else{
+                document.write(`<p>Dit is geen correcte ingave</p>`);
+                return 0
+            }
+        }
+        
+        let aantal;
+
+        aantal      = prompt("Hoeveel getallen wil je ingeven?", "3");
+        aantal      = controleAantal (aantal);
+        
+        let getallen    = [];
+        if (aantal > 0) {
+            for (let i = 0; i < aantal; i++) {
+                 getallen[i] = prompt(`Geef getal ${i + 1} in.`);
+                 getallen[i] = controleAantal(getallen[i])
+                 function controleAantal(getal) {
+                    if (getal == null){
+                        return "fout"
+                    }
+                    else if (getal == 0){
+                        return "fout"
+                    }
+                    else if (isNaN(getal) == false){
+                        return getal
+                    }
+                    else{
+                        return "fout"
+                    }
+                }
+            }         
+        } 
+
+        document.write(`${getallen}`);       
+    </script>
+    <!-- 
+        Dit was wel een hele pittige maar plots was er een klik :-)
+        Ik weet wel niet als hij helemaal juist is, want volgens mij kan je de laatste controle ook appart doen.  
+     -->
+</body>
+</html>

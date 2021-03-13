@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naamcontrole via een functie</title>
+</head>
+<body>
+    <!--  
+    Definieer 3 variabelen:
+    fout = false
+    voornaam
+    achternaam
+
+    Definieer een functie controle.
+
+    In het hoofdscript:
+    Vraag de voornaam van de gebruiker. Geef deze door aan de functie controle.
+
+    In de functie controleer je volgende zaken:
+    - is er geannuleerd, schrijf dit dan in het document en zet fout op true
+    - is er niets ingegeven: schrijf dit dan in het document en zet fout op true
+    - zijn er minder dan 2 karakters ingegeven: schrijf dit dan in het document en zet fout op true
+    Indien alles ok is, zet dan het eerste karakter om in een hoofdletter
+
+    In het hoofdscript: nadat je gecontroleerd hebt of de voornaam ok is (gebruik fout hier voor), vraag je de achternaam. Geef deze dan ook door aan de functie controle.
+    Vervolgens controleer je nog eens d.m.v. fout of de achternaam ok is. Indien dit waar is, dan schrijf je in het document: "Hey" met de voornaam en achternaam.
+    -->
+    <!-- <script> 
+
+        let voornaam        = prompt("Wat is je voornaam", "niels");
+        let fout            = controle1(voornaam);
+        let achternaam      = prompt("Wat is je achternaam", "adriaenssens");
+        let fout2           = controle2(achternaam);
+        
+
+        function controle1(check) {
+            if (check == null ) {
+                document.write("U hebt geanuleerd!");
+            }
+            else if (check == 0) {
+                document.write("U heeft niks ingevuld!");
+            }
+            else if (check.length < 2) {
+                document.write("De naam moet 2 of meerdere karakters bevatten.");
+            }
+            else{
+                document.write(`<p>Hey ${voornaam.substring(0,1).toUpperCase()}${voornaam.substring(1,voornaam.length)} `) 
+            }
+        }
+
+        function controle2(check) {
+            if (check == null ) {
+                document.write("U hebt geanuleerd!");
+            }
+            else if (check == 0) {
+                document.write("U heeft niks ingevuld!");
+            }
+            else if (check.length < 2) {
+                document.write("De naam moet 2 of meerdere karakters bevatten.");
+            }
+            else{
+                document.write(`${achternaam.substring(0,1).toUpperCase()}${achternaam.substring(1,achternaam.length)}.</p>`)
+            }
+        }
+    
+    /*Ik heb zo goed als de hele week geprobeerd en dit is het beste wat ik kan bekomen. Ik weet dat het deels fout is maar zie het echt niet.  
+    Ook had ik nog een idee om een functie te maken voor de zin te schrijven, want dit is ook mogelijkt. 
+    Voor de hoofdletters is dit een oplossing maar volgens mij kan je er ook een push actie bij gebruiken.
+    Voor de waarschuwingen kan je ook een return gebruiken in plaats van een "document.write" maar dat leverde een minder eindresultaat op. */
+        
+    </script> -->
+    <script>
+        "use strict";
+
+    function controle(input) {
+        if (input == null) {
+            document.write("u heeft geannuleerd!");
+            fout = true;
+        } else if (input.length == 0) {
+            document.write("u heeft niets ingegeven !");
+            fout = true;
+        } else if (input.length < 2) {
+            document.write("Geef minimaal 2 tekens in.");
+            fout = true;
+        } else {
+            return `${input.charAt(0).toUpperCase() + input.substring(1)}`;
+        }
+    }
+
+    let fout = false;
+    let voornaam;
+    let achternaam;
+
+    voornaam = prompt("Geef je voornaam in ajb");
+    voornaam = controle(voornaam);
+    if (!fout) {
+        achternaam = prompt("Geef je achternaam in ajb");
+        achternaam = controle(achternaam);
+        if (!fout) {
+            document.write(`Hey ${voornaam} ${achternaam}`);
+        }
+    }
+    </script>
+</body>
+</html> 
